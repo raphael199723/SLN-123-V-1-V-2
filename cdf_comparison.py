@@ -91,7 +91,7 @@ def plt_cdf(path=str,data=list,name=str,range_num=int):
 def main(range_num=int):
 	csv = load_data(file_name)
 	norm_2_error = analysis_by_2_norm(csv)
-	error = plt_cdf(file_name,norm_2_error,"Fully_connected",range_num)
+	error = plt_cdf(file_name,norm_2_error,"DNN_FN RP7",range_num)
 
 # 	csv = load_data(file_name1)
 # 	norm_2_error = analysis_by_2_norm(csv)
@@ -148,7 +148,7 @@ def main(range_num=int):
 	plt.ylabel('CDF')
 	plt.xlabel('Error (cm)')
 	colors = ['r', 'c', 'm','lime', 'k','darkgray','aqua','darkorange','darksalmon','dodgerblue','indigo','lawngreen','cyan','gold']
-#	plt.plot(range(range_num+1), error[:(range_num+1)], c=colors[0])
+	plt.plot(range(range_num+1), error[:(range_num+1)], c=colors[0])
 #	plt.plot(range(range_num+1), error1[:(range_num+1)], c=colors[1])
 #	plt.plot(range(range_num+1), error2[:(range_num+1)], c=colors[2])
 #	plt.plot(range(range_num+1), error3[:(range_num+1)], c=colors[3])
