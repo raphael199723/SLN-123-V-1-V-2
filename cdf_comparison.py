@@ -2,17 +2,17 @@ import numpy as np
 import pandas as pd
 import sys, os, math
 import matplotlib.pyplot as plt
-file_name='DNN_and_FN_output_predict1.csv'
+#file_name='DNN_and_FN_output_predict1.csv'
 #file_name1='boosting_10time_mean_output_predict.csv'
 #file_name2='boosting_output_predict.csv'
 #file_name3='fully_10time_mean_output_predict.csv'
-#file_name4='SLN_and_FN_output_predict.csv'
+file_name4='SLN_and_FN_output_predict.csv'
 #file_name5='xboost_output_predict.csv'
 #file_name6='xboost_wtsd_output_predict.csv'
-#file_name7='XGBoost_and_FN_output_predict.csv'
-file_name8='DNN_and_FN_output_predict.csv'
-#file_name9='CNN_output_predict4.csv'
-#file_name10='CNN_and_FN_output_predict10.csv'
+file_name7='1_SLN_and_FN_output_predict.csv'
+file_name8='2SLN_and_FN_output_predict.csv'
+#file_name9='CNN_output_predict9.csv'
+#file_name10='CNN_and_FN_output_predict.csv'
 #file_name11='CNN1D_and_FN_output_predict.csv'
 #file_name12='CNN1d_output_predict.csv'
 
@@ -89,9 +89,9 @@ def plt_cdf(path=str,data=list,name=str,range_num=int):
 	return error_counter
 
 def main(range_num=int):
-	csv = load_data(file_name)
-	norm_2_error = analysis_by_2_norm(csv)
-	error = plt_cdf(file_name,norm_2_error,"DNN_FN RP7",range_num)
+#	csv = load_data(file_name)
+#	norm_2_error = analysis_by_2_norm(csv)
+#	error = plt_cdf(file_name,norm_2_error,"DNN_FN RP7",range_num)
 
 # 	csv = load_data(file_name1)
 # 	norm_2_error = analysis_by_2_norm(csv)
@@ -105,9 +105,9 @@ def main(range_num=int):
 # 	norm_2_error = analysis_by_2_norm(csv)
 # 	error3 = plt_cdf(file_name3,norm_2_error,"SLN",range_num)
 
-#	csv = load_data(file_name4)
-#	norm_2_error = analysis_by_2_norm(csv)
-#	error4 = plt_cdf(file_name4,norm_2_error,"SLN_FN",range_num)
+	csv = load_data(file_name4)
+	norm_2_error = analysis_by_2_norm(csv)
+	error4 = plt_cdf(file_name4,norm_2_error,"SLN_FN",range_num)
 
 # 	csv = load_data(file_name5)
 # 	norm_2_error = analysis_by_2_norm(csv)
@@ -117,9 +117,9 @@ def main(range_num=int):
 # 	norm_2_error = analysis_by_2_norm(csv)
 # 	error6 = plt_cdf(file_name6,norm_2_error,"XGBoost_with time series data",range_num)
 
-#	csv = load_data(file_name7)
-#	norm_2_error = analysis_by_2_norm(csv)
-#	error7 = plt_cdf(file_name7,norm_2_error,"XGBoost_FN",range_num)
+	csv = load_data(file_name7)
+	norm_2_error = analysis_by_2_norm(csv)
+	error7 = plt_cdf(file_name7,norm_2_error,"XGBoost_FN",range_num)
 
 	csv = load_data(file_name8)
 	norm_2_error = analysis_by_2_norm(csv)
@@ -142,20 +142,20 @@ def main(range_num=int):
 #	error12 = plt_cdf(file_name12,norm_2_error,"CNN1d_FN",range_num)
 
 	plt.clf()
-	plt.title('DNN+FN(RP7 VS RP6)')
+	plt.title('Different Feature Number train by SLN+FN model)')
 	new_ticks = np.linspace(0, 1.0, 11)
 	plt.yticks(new_ticks)
 	plt.ylabel('CDF')
 	plt.xlabel('Error (cm)')
 	colors = ['r', 'c', 'm','lime', 'k','darkgray','aqua','darkorange','darksalmon','dodgerblue','indigo','lawngreen','cyan','gold']
-	plt.plot(range(range_num+1), error[:(range_num+1)], c=colors[0])
+#	plt.plot(range(range_num+1), error[:(range_num+1)], c=colors[0])
 #	plt.plot(range(range_num+1), error1[:(range_num+1)], c=colors[1])
 #	plt.plot(range(range_num+1), error2[:(range_num+1)], c=colors[2])
 #	plt.plot(range(range_num+1), error3[:(range_num+1)], c=colors[3])
-#	plt.plot(range(range_num+1), error4[:(range_num+1)], c=colors[4])
+	plt.plot(range(range_num+1), error4[:(range_num+1)], c=colors[4])
 #	plt.plot(range(range_num+1), error5[:(range_num+1)], c=colors[5])
 #	plt.plot(range(range_num+1), error6[:(range_num+1)], c=colors[6])
-#	plt.plot(range(range_num+1), error7[:(range_num+1)], c=colors[7])
+	plt.plot(range(range_num+1), error7[:(range_num+1)], c=colors[7])
 	plt.plot(range(range_num+1), error8[:(range_num+1)], c=colors[8])
 #	plt.plot(range(range_num+1), error9[:(range_num+1)], c=colors[9])
 #	plt.plot(range(range_num+1), error10[:(range_num+1)], c=colors[10])
@@ -163,10 +163,10 @@ def main(range_num=int):
 #	plt.plot(range(range_num+1), error12[:(range_num+1)], c=colors[12])
 
 # 	plt.legend(['Fully connected model','Multi-input model','Boosting model','SLN model', 'SLN+FN model','XGBoost model','XGBoost model with time series data','XGBoost+FN model','DNN model','CNN model','DNN+FN model','CNN+FN model','CNN1d model'], loc='lower right')
-	#plt.legend(['SLN_FN model','XGBoost_FN model','DNN_FN model','CNN2D model','CNN2D_FN','CNN1D_FN model'], loc='lower right')
-	plt.legend(['DNN_FN 7 reference point','DNN_FN 6 reference point'], loc='lower right')
+	plt.legend(['PHR+PusSNR+PucSNR','PHR','PusSNR'], loc='lower right')
+#	plt.legend(['DNN_FN 7 reference point','DNN_FN 6 reference point'], loc='lower right')
 	plt.grid()
-	plt.savefig('DNNRP6_VS_DNNRP7')
+	plt.savefig('Different_num_feature')
 	plt.show()
 
 if __name__ == "__main__":
