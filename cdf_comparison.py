@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 #file_name1='boosting_10time_mean_output_predict.csv'
 #file_name2='boosting_output_predict.csv'
 #file_name3='fully_10time_mean_output_predict.csv'
-file_name4='SLN_and_FN_output_predict.csv'
+file_name4='1106011_SLN_and_FN_output_predict.csv'
 #file_name5='xboost_output_predict.csv'
 #file_name6='xboost_wtsd_output_predict.csv'
-file_name7='1_SLN_and_FN_output_predict.csv'
-file_name8='2SLN_and_FN_output_predict.csv'
+file_name7='1106011_1SLN_and_FN_output_predict.csv'
+file_name8='1106011_2SLN_and_FN_output_predict.csv'
 #file_name9='CNN_output_predict9.csv'
 #file_name10='CNN_and_FN_output_predict.csv'
 #file_name11='CNN1D_and_FN_output_predict.csv'
@@ -166,7 +166,7 @@ def main(range_num=int):
 	plt.legend(['PHR+PusSNR+PucSNR','PHR','PusSNR'], loc='lower right')
 #	plt.legend(['DNN_FN 7 reference point','DNN_FN 6 reference point'], loc='lower right')
 	plt.grid()
-	plt.savefig('Different_num_feature')
+	plt.savefig('1106011_Different_num_feature')
 	plt.show()
 
 if __name__ == "__main__":
